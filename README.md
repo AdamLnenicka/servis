@@ -59,3 +59,20 @@ Detailed project information can be found at .docx documentation.
 - The application will support multi-language localization to be usable in different regions.
 
 Expected output: A fully functional web application with a user interface and backend logic that enables efficient management of vehicle technical inspections, services, and scrap disposal, with a focus on various user roles and their permissions.
+
+
+![image](https://github.com/AdamLnenicka/servis/assets/70570107/1d58ab7b-de12-48ec-be6e-621b4a4d5de9)
+
+![image](https://github.com/AdamLnenicka/servis/assets/70570107/037ec023-08bc-4fdf-8cee-b37659551855)
+
+![image](https://github.com/AdamLnenicka/servis/assets/70570107/d5380dd1-db5f-49c2-9af1-15eedabaebbb)
+
+![image](https://github.com/AdamLnenicka/servis/assets/70570107/961f869f-2cc2-4ce8-97ec-be0428c84bfe)
+
+![image](https://github.com/AdamLnenicka/servis/assets/70570107/cd105f6e-6fba-4730-9666-3546e4c723c6)
+
+![image](https://github.com/AdamLnenicka/servis/assets/70570107/0fef05a2-f47c-4545-bdb3-ea9521f194e9)
+
+![image](https://github.com/AdamLnenicka/servis/assets/70570107/ebd9e24e-7402-49cc-b883-290d3563486e)
+
+
