@@ -1,4 +1,9 @@
+This project involved designing use cases, wireframes, and a database model, followed by implementing HTML templates, CSS styles, and a SQLite3 database. The web application, built using Python and Flask, includes features such as registration, login, user profile management, and role-based functionalities. Security and functionality testing were conducted using various user roles. The application routes handle specific tasks like registration, login, user profiles, order management, and vehicle status display. The functions.py file manages database operations for user management, vehicle handling, and technical record processing.
+
+Detailed project information can be found at .docx documentation.
+
 Functionality of the application:
+
 1. User management:
    - Administrator: Has full access to all application functions, including user management, roles, and permissions.
    - Department managers: Have access to relevant departments (technical inspection, service, disposal) and can manage records, plans, and resources assigned to these departments.
