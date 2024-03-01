@@ -25,23 +25,37 @@ Detailed project information can be found at .docx documentation.
    - Creating clear visualizations for managers.
 
 <h2>Permissions and roles:</h2>
+
 1. Administrator / boss
+
 2. Technical inspection manager
+
 3. Service manager
+
 4. Scrap disposal manager
+
 5. Technical inspection technician
+
 6. Service technician
+
 7. Scrap disposal technician
+
 8. Customer
 
 <h2>Technical requirements:</h2>
+
 - The application will be developed as a web application with responsive design to be usable on various devices.
+
 - A modern web framework with a database system for data storage will be used for application development.
+
 - Security measures will include user authentication, role verification, and input data control.
 
 <h2>Additional requirements:</h2>
+
 - The application will be intuitive and easy to use for users of different technical levels.
+
 - It will be ensured that different user roles will have access only to functions and data relevant to their work.
+
 - The application will support multi-language localization to be usable in different regions.
 
 Expected output: A fully functional web application with a user interface and backend logic that enables efficient management of vehicle technical inspections, services, and scrap disposal, with a focus on various user roles and their permissions.
