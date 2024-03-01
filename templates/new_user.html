@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Mendelu Autoservis
+{% endblock %}
+
+{% block text %}
+
+<main>
+    <div class="new-user-container">
+        <div class="new-user-section">
+            <h2>Vytvořit nového uživatele</h2>
+            <form action="{{ url_for('new_user_admin') }}" method="post">
+                <label for="new-name">Jméno:</label>
+                <input type="text" id="new-name" name="new-name" required>
+
+                <label for="new-surname">Přijmení:</label>
+                <input type="text" id="new-surname" name="new-surname" required>
+
+                <label for="new-email">E-mail:</label>
+                <input type="email" id="new-email" name="new-email" required>
+
+                <label for="new-password">Heslo:</label>
+                <input type="password" id="new-password" name="new-password" required>
+
+                <label for="user-role">Role:</label>
+                <select id="user-role" name="user-role">
+                    <option value="1">Administrátor</option>
+                    <option value="2">Manažer</option>
+                    <option value="3">Technik</option>
+                    <option value="4">Zákazník</option>
+                </select>
+                <label for="user-department">Oddělení:</label>
+                <select id="user-department" name="user-department">
+                    <option value="1">Oddělení technické kontroly</option>
+                    <option value="2">Oddělení servisu</option>
+                    <option value="3">Oddělení likvidace vraků</option>
+                </select>
+
+                <input type="submit" value="Vytvořit uživatele">
+            </form>
+        </div>
+
+        <div class="user-info-section">
+        <div class="user-info-box">
+            <h2>{{ name }} {{ surname }}</h2>
+            <p>{{ role }}</p>
+        </div>
+
+            <div class="actions-section">
+            <button class="action-btn">Oddělení</button>
+            <button class="action-btn">Práce</button>
+            <button class="action-btn" onclick="document.location='/uzivatele'">Uživatelé</button>
+            <button class="action-btn">Kalendář</button>
+            <button class="action-btn">Zprávy</button>
+            <button class="action-btn" onclick="document.location='/profil'">Můj profil</button>
+            </div>
+        <form action="/odhlaseni" method="post">
+           <input type="submit" class="btn" value="Odhlásit se">
+        </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

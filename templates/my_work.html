@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Mendelu Autoservis
+{% endblock %}
+
+{% block text %}
+
+    <main>
+        <div class="dashboard-container">
+            <!-- Levá část stránky -->
+            <div class="work-table-section">
+                <h2>Moje práce</h2>
+                <table class="vehicle-status-table">
+                    <thead>
+                    <tr>
+                        <th>SPZ</th>
+                        <th>Značka</th>
+                        <th>Model</th>
+                        <th>Rok výroby</th>
+                        <th>Zákazník</th>
+                        <th>Podrobnosti</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for vehicle in vehicles %}
+                    <tr>
+                        <td>{{ vehicle[0] }}</td>
+                        <td>{{ vehicle[1] }}</td>
+                        <td>{{ vehicle[2] }}</td>
+                        <td>{{ vehicle[3] }}</td>
+                        <td>{{ vehicle[4] ~ ' ' ~ vehicle[5] }}</td>
+                        <td><a href="{{ url_for('my_work_detail', vehicle_id=vehicle[6]) }}">Zobrazit</a></td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="user-info-section">
+                <div class="user-info-box">
+                    <h2>{{ name }} {{ surname }}</h2>
+                    <p>{{ role }}</p>
+                </div>
+
+                <div class="actions-section">
+                    <button class="action-btn" onclick="document.location='/moje_prace'">Moje práce</button>
+                    <button class="action-btn">Kalendář</button>
+                    <button class="action-btn">Zprávy</button>
+                    <button class="action-btn" onclick="document.location='/profil'">Můj profil</button>
+                </div>
+                <form action="/odhlaseni" method="post">
+                   <input type="submit" class="btn" value="Odhlásit se">
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock %}

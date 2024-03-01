@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Mendelu Autoservis
+{% endblock %}
+
+{% block text %}
+
+<div class="dashboard-container">
+    <div class="profile-section">
+        <h2>Technické záznamy</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Record ID</th>
+                    <th>Vehicle ID</th>
+                    <th>Technician ID</th>
+                    <th>Service ID</th>
+                    <th>Record Date</th>
+                    <th>Results</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in technical_records %}
+                    <tr>
+                        <td>{{ record.record_id }}</td>
+                        <td>{{ record.vehicle_id }}</td>
+                        <td>{{ record.technician_id }}</td>
+                        <td>{{ record.service_id }}</td>
+                        <td>{{ record.record_date }}</td>
+                        <td>{{ record.results }}</td>
+                        <td>
+                            <a href="/upravit/{{ record.record_id }}" class="edit-btn">Upravit</a>
+                            <a href="/smazat/{{ record.record_id }}" class="delete-btn">Smazat</a>
+                        </td>
+                    </tr>
+    </div>
+    <div class="user-info-section">
+        <div class="user-info-box">
+            <h2>{{ name }} {{ surname }}</h2>
+            <p>{{ role }}</p>
+        </div>
+
+        <div class="actions-section">
+            <button class="action-btn" onclick="document.location='/departments'">Oddělení</button>
+            <button class="action-btn">Práce</button>
+            <button class="action-btn" onclick="document.location='/uzivatele'">Uživatelé</button>
+            <button class="action-btn">Kalendář</button>
+            <button class="action-btn">Zprávy</button>
+            <button class="action-btn" onclick="document.location='/profil'">Můj profil</button>
+        </div>
+        <form action="/odhlaseni" method="post">
+           <input type="submit" class="btn" value="Odhlásit se">
+        </form>
+    </div>
+
+{% endblock %}

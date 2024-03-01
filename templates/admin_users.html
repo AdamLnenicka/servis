@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Správa uživatelů - Mendelu Autoservis
+{% endblock %}
+
+{% block text %}
+<div class="dashboard-container">
+    <div class="user-management-section">
+        <h2>Správa uživatelů</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Jméno</th>
+                    <th>Přijmení</th>
+                    <th>Role</th>
+                    <th>Akce</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user[0] }}</td>
+                    <td>{{ user[1] }}</td>
+                    <td>{{ user[2] }}</td>
+                    <td>
+                        <button class="edit-btn" onclick="document.location='/upravit_uzivatele'">Upravit</button>
+                        <button class="delete-btn" onclick="document.location='/odstranit_uzivatele/{{ user[3] }}'">Odstranit</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button class="create-user-btn" onclick="document.location='/novy_pouzivatel'">Přidat uživatele</button>
+    </div>
+
+    <div class="user-info-section">
+        <div class="user-info-box">
+            <h2>{{ name }} {{ surname }}</h2>
+            <p>{{ role }}</p>
+        </div>
+
+        <div class="actions-section">
+            <button class="action-btn" onclick="document.location='/departments'">Oddělení</button>
+            <button class="action-btn">Práce</button>
+            <button class="action-btn" onclick="document.location='/uzivatele'">Uživatelé</button>
+            <button class="action-btn">Kalendář</button>
+            <button class="action-btn">Zprávy</button>
+            <button class="action-btn" onclick="document.location='/profil'">Můj profil</button>
+        </div>
+        <form action="/odhlaseni" method="post">
+           <input type="submit" class="btn" value="Odhlásit se">
+        </form>
+    </div>
+</div>
+{% endblock %}

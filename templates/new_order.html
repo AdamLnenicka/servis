@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Mendelu Autoservis
+{% endblock %}
+
+{% block text %}
+<main>
+    <div class="dashboard-container">
+        <!-- Levá část stránky -->
+        <div class="new-order-section">
+            <h2>Nová objednávka</h2>
+            <form action="/nova_objednavka" method="post">
+                <!-- Sekce pro vyplnění údajů o vozidle -->
+                <div class="vehicle-info-section">
+                    <label for="spz">SPZ:</label>
+                    <input type="text" id="spz" name="spz" required>
+                    <br>
+                    <label for="brand">Značka:</label>
+                    <input type="text" id="brand" name="brand" required>
+                    <br>
+                    <label for="year">Rok výroby:</label>
+                    <select id="year" name="year" required>
+                        {% for year in years %}
+                            <option value="{{ year }}">{{ year }}</option>
+                        {% endfor %}
+                    </select>
+                    <br>
+                    <label for="model">Model:</label>
+                    <input type="text" id="model" name="model">
+                </div>
+
+                <!-- Sekce pro výběr typu služby a kalendáře -->
+                <div class="service-info-section">
+                    <label for="service-type">Typ služby:</label>
+                    <select id="service-type" name="service-type" required>
+                        <option value="1">Kontrola</option>
+                        <option value="2">Servis</option>
+                        <option value="3">Likvidace</option>
+                    </select>
+
+                    <label for="date">Datum</label>
+                    <input type="date" id="date" name="date" required><br>
+
+                    <label for="time">Čas odovzdaní auta</label>
+                    <select id="time" name="time"  required>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                    </select><br>
+                    <small>pracovní doba 08:00 - 16:00</small><br>
+
+                    <script>
+                        function getCurrentDate() {
+                            const today = new Date();
+                            const year = today.getFullYear();
+                            const month = String(today.getMonth() + 1).padStart(2, '0');
+                            const day = String(today.getDate()).padStart(2, '0');
+                            return `${year}-${month}-${day}`;
+                        }
+
+                        document.getElementById('date').value = getCurrentDate();
+                        document.getElementById('date').min = getCurrentDate();
+                    </script>
+
+
+                    <input type="submit" class="btn" value="Objednat">
+                </div>
+            </form>
+        </div>
+
+        <!-- Pravá část stránky (dashboard zákazníka) -->
+        <div class="user-info-section">
+        <div class="user-info-box">
+            <h2>{{ name }} {{ surname }}</h2>
+            <p>{{ role }}</p>
+        </div>
+
+            <div class="actions-section">
+                <button class="action-btn" onclick="document.location='/stav_vozidla'">Stav vozidla</button>
+                <button class="action-btn" onclick="document.location='/nova_objednavka'">Nová objednávka</button>
+                <button class="action-btn">Zprávy</button>
+                <button class="action-btn" onclick="document.location='/profil'">Můj profil</button>
+            </div>
+
+            <form action="/odhlaseni" method="post">
+                <input type="submit" class="btn" value="Odhlásit se">
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

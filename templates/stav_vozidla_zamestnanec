@@ -1,0 +1,85 @@
+<!DOCTYPE html lang="cs">
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="css/styl.css" type="text/css">
+    <link rel="stylesheet" href="css/styl-fonty-barvy.css" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mendelu Autoservis - Stav vozidla</title>
+</head>
+
+<body>
+    <header>
+        <div id="logo_space">
+            <h1>MENDELU AUTOSERVIS</h1>
+        </div>
+        <nav id="main_nav">
+            <a href="/o-nas/">O nás</a>
+            <a href="/sluzby/">Služby</a>
+            <a href="/kontakt/">Kontakt</a>
+            <a href="/konto/">Konto</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard-container">
+            <!-- Levá část stránky -->
+            <div class="vehicle-status-employee-section">
+                <h2>Stav vozidla</h2>
+                <table class="vehicle-status-table">
+                    <thead>
+                        <tr>
+                            <th>Čas</th>
+                            <th>Typ Akce</th>
+                            <th>Poznámka</th>
+                            <th>Stav vozidla</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Zde můžete vložit data tabulky pomocí PHP nebo JavaScriptu -->
+                        <tr>
+                            <td>2023-12-09 10:30</td>
+                            <td>Kontrola</td>
+                            <td>Pravidelná kontrola vozidla</td>
+                            <td>Probíhá</td>
+                            <td>
+                                <button class="edit-btn">Upravit</button>
+                                <button class="delete-btn">Odstranit</button>
+                            </td>
+                        </tr>
+                        <!-- Další řádky tabulky... -->
+                    </tbody>
+                </table>
+                <button class="add-action-btn">Přidat akci</button>
+            </div>
+
+            <!-- Pravá část stránky (dashboard technika) -->
+            <div class="technician-dashboard-section">
+                <div class="user-info-box">
+                    <h2>Petr Koupal</h2>
+                    <p>Technik</p>
+                </div>
+
+                <!-- Tlačítka a akce pro technika -->
+                <div class="actions-section">
+                    <button class="action-btn">Stav vozidla</button>
+                    <button class="action-btn">Můj kalendář</button>
+                    <button class="action-btn">Zprávy</button>
+                    <button class="action-btn">Můj profil</button>
+                </div>
+
+                <button class="logout-btn">Odhlásit se</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Mendelu Autoservis. Všechna práva vyhrazena<br>
+            Autoři Adam Lněnička, Adam Žilavý</p>
+    </footer>
+</body>
+
+</html>

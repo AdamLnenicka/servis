@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+header,
+footer {
+    background-color: #00A86B;
+    color: white;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+#logo_space {
+    width: 30%;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+nav {
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    background-color: #D4EDDA;
+    padding: 15px 15px;
+    border-radius: 5px;
+    border: 3px solid #555;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+nav a:first-child {
+    margin-left: 0;
+}
+
+nav a:hover {
+    background-color: #007B4F;
+}
+
+main {
+    width: 80vw;
+    margin: auto;
+    min-width: 800px;
+    max-width: 1200px;
+    padding: 5px;
+    padding-bottom: 8rem;
+    padding-top: 3rem;
+    text-align: center;
+    font-size: 16px;
+}
+
+footer {
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #00A86B;
+    color: white;
+}
+
+.button-common,
+.delete-btn,
+.login-btn,
+.registrace-btn,
+.edit-btn,
+.save-btn,
+.action-btn,
+.logout-btn,
+.create-user-btn {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn,
+.logout-btn,
+.registrace-btn {
+    background-color: #8FB48E;
+    color: white;
+}
+
+.delete-btn:hover,
+.login-btn:hover,
+.registrace-btn:hover,
+.edit-btn:hover,
+.save-btn:hover,
+.action-btn:hover,
+.logout-btn:hover,
+.create-user-btn:hover {
+    background-color: #007B4F;
+}
+
+.dashboard-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.profile-section,
+.user-info-section {
+    width: 48%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label,
+form input {
+    margin-bottom: 10px;
+}
+
+.user-info-box {
+    background-color: #8FB48E;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.user-info-box h2 {
+    margin-bottom: 10px;
+}
+
+.actions-section {
+    margin-top: 20px;
+}
+
+.action-btn {
+    display: block;
+    width: 100%;
+    background-color: #D4EDDA;
+    color: black;
+    margin-bottom: 10px;
+}
+
+
+.form-container {
+    width: 40vw;
+    margin: auto;
+    background-color: #F4F4F4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-container h2 {
+    color: #00A86B;
+    margin-bottom: 20px;
+}
+
+.new-user-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.new-user-section,
+.admin-dashboard-section {
+    width: 48%;
+}
+
+.new-user-section h2,
+.dashboard-box h2 {
+    color: #00A86B;
+    margin-bottom: 20px;
+}
+
+.new-user-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-user-section label,
+.new-user-section input,
+.new-user-section select {
+    margin-bottom: 10px;
+}
+
+.dashboard-box {
+    background-color: #8FB48E;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.dashboard-box p {
+    margin-top: 10px;
+}
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container label {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+ul {
+    list-style-type: none; /* Odstranění výchozích odrážek pro seznamy */
+    padding: 0; /* Odstranění vnějšího okraje pro seznamy */
+}

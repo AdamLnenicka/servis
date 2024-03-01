@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Mendelu Autoservis
+{% endblock %}
+
+{% block text %}
+
+<div class="dashboard-container">
+    <div class="profile-section">
+        <h2>Přidelit vozidlo -  {{ records[0][0] }}</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>SPZ</th>
+                    <th>Značka</th>
+                    <th>Model</th>
+                    <th>Rok výroby</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                <tr>
+                    <td>{{ record[0] }}</td>
+                    <td>{{ record[1] }}</td>
+                    <td>{{ record[2] }}</td>
+                    <td>{{ record[3] }}</td>
+                    <td>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+                    <form action="{{ url_for('assign', record_id=record_id) }}" method="post">
+                        <label for="technik">Vyber technika</label>
+                            <select id="technik" name="technik" required>
+                                {% for user in technicians %}
+                                    <option value="{{ user[0] }}">{{ " ".join([user[1], user[2]]) }}</option>
+                                {% endfor %}
+                            </select>
+                        <input type="submit" value="Přidelit technikovi">
+                    </form>
+    </div>
+
+    <div class="user-info-section">
+        <div class="user-info-box">
+            <h2>{{ name }} {{ surname }}</h2>
+            <p>{{ role }}</p>
+        </div>
+
+        <div class="actions-section">
+            <button class="action-btn" onclick="document.location='/departments'">Moje oddělení</button>
+            <button class="action-btn">Kalendář</button>
+            <button class="action-btn">Zprávy</button>
+            <button class="action-btn" onclick="document.location='/profil'">Můj profil</button>
+        </div>
+        <form action="/odhlaseni" method="post">
+           <input type="submit" class="btn" value="Odhlásit se">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

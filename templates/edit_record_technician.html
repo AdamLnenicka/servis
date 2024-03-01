@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Mendelu Autoservis
+{% endblock %}
+
+{% block text %}
+
+    <script>
+      // create a function to update the date and time
+      function updateDateTime() {
+        // create a new `Date` object
+        const now = new Date();
+
+        // get the current date and time in 'YYYY-MM-DD hh:mm:ss' format
+        const formattedDateTime = now.toISOString().slice(0, 19).replace("T", " ");
+
+        // update the `value` property of the `input` element with the `id` of `datetime`
+        document.querySelector('#datetime').value = formattedDateTime;
+      }
+
+      // call the `updateDateTime` function when the page loads
+      document.addEventListener('DOMContentLoaded', function() {
+        updateDateTime();
+        // call the `updateDateTime` function every second
+        updateDateTime;
+      });
+    </script>
+
+<main>
+    <div class="new-user-container">
+        <div class="new-user-section">
+            <h2>Upravit záznam</h2>
+            <form action="{{ url_for('edit_record', vehicle_id=vehicle_id, record_id=record_id) }}" method="post">
+                <label for="spz">SPZ:</label>
+                <input type="text" id="spz" name="spz" value="{{ spz }}" disabled>
+
+                <label for="datetime">Čas:</label>
+                <input type="text" id="datetime" name="datetime" value="{{ records[0][0] }}" disabled>
+
+                <label for="sluzba">Služba:</label>
+                <input type="text" id="sluzba" name="sluzba" value="{{ records[0][1] }}" disabled>
+
+                <label for="poznamka">Poznámka:</label>
+                <input type="text" id="poznamka" name="poznamka" value="{{ records[0][2] }}" required>
+
+                <input type="submit" value="Upravit záznam">
+            </form>
+        </div>
+
+        <div class="user-info-section">
+            <div class="user-info-box">
+                <h2>{{ name }} {{ surname }}</h2>
+                <p>{{ role }}</p>
+            </div>
+
+            <div class="actions-section">
+                    <button class="action-btn" onclick="document.location='/moje_prace'">Moje práce</button>
+                    <button class="action-btn">Kalendář</button>
+                    <button class="action-btn">Zprávy</button>
+                    <button class="action-btn" onclick="document.location='/profil'">Můj profil</button>
+                </div>
+                <form action="/odhlaseni" method="post">
+                   <input type="submit" class="btn" value="Odhlásit se">
+                </form>
+        </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

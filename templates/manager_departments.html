@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Mendelu Autoservis
+{% endblock %}
+
+{% block text %}
+
+<div class="dashboard-container">
+    <div class="profile-section">
+        <h2>Technické záznamy - {{ department }}</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>SPZ</th>
+                    <th>Čas</th>
+                    <th>Poznámka</th>
+                    <th>Zaměstnanec</th>
+                    <th>Akce</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                <tr>
+                    <td>{{ record[0] }}</td>
+                    <td>{{ record[1] }}</td>
+                    <td>{{ record[2] }}</td>
+                    <td>
+                        {% if record[3] is not none %}
+                        {{ record[3] }}
+                        {% else %}
+                        <form action="{{ url_for('assign_technician', record_id=record[4], vehicle_id=vehicle_id) }}" method="post">
+                                <input type="submit" class="btn" value="Přidelit technikovi">
+                        </form>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <form action="" method="post">
+                                    <input type="submit" class="btn" value="Upravit">
+                                </form>
+                                <form action="{{ url_for('delete_record_manager', record_id=record[4]) }}" method="post">
+                                    <input type="submit" class="btn" value="Odstranit">
+                                </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="user-info-section">
+        <div class="user-info-box">
+            <h2>{{ name }} {{ surname }}</h2>
+            <p>{{ role }}</p>
+        </div>
+
+        <div class="actions-section">
+            <button class="action-btn" onclick="document.location='/departments'">Moje oddělení</button>
+            <button class="action-btn">Kalendář</button>
+            <button class="action-btn">Zprávy</button>
+            <button class="action-btn" onclick="document.location='/profil'">Můj profil</button>
+        </div>
+        <form action="/odhlaseni" method="post">
+           <input type="submit" class="btn" value="Odhlásit se">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

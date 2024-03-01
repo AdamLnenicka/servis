@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Mendelu Autoservis
+{% endblock %}
+
+{% block text %}
+
+<div class="dashboard-container">
+    <div class="profile-section">
+        <h2>Seznam Oddělení</h2>
+    <ul>
+        {% for department_id, department_name in departments %}
+        <li>
+            {{ department_name }}
+            <form action="/enter_department/{{ department_id }}" method="post">
+                <input type="submit" class="enter-btn" value="Vstoupit">
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+    </div>
+</div>
+    <div class="user-info-section">
+        <div class="user-info-box">
+            <h2>{{ name }} {{ surname }}</h2>
+            <p>{{ role }}</p>
+        </div>
+
+        <div class="actions-section">
+            <button class="action-btn" onclick="document.location='/enter_departments'">Oddělení</button>
+            <button class="action-btn">Práce</button>
+            <button class="action-btn" onclick="document.location='/uzivatele'">Uživatelé</button>
+            <button class="action-btn">Kalendář</button>
+            <button class="action-btn">Zprávy</button>
+            <button class="action-btn" onclick="document.location='/profil'">Můj profil</button>
+        </div>
+        <form action="/odhlaseni" method="post">
+           <input type="submit" class="btn" value="Odhlásit se">
+        </form>
+    </div>
+
+{% endblock %}

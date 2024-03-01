@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Mendelu Autoservis
+{% endblock %}
+
+{% block text %}
+
+    <main>
+        <div class="dashboard-container">
+            <!-- Levá část stránky -->
+            <div class="vehicle-status-section">
+                <h2>Stav vozidla - {{ spz }}</h2>
+                <table class="vehicle-status-table">
+                    <thead>
+                        <tr>
+                            <th>Čas</th>
+                            <th>Služba</th>
+                            <th>Poznámka</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for record in records %}
+                        <tr>
+                            <td>{{ record[0] }}</td>
+                            <td>{{ record[1] }}</td>
+                            <td>{{ record[2] }}</td>
+                            <td>
+                                <form action="{{ url_for('edit_record_page', record_id=record[3], vehicle_id=vehicle_id) }}" method="post">
+                                    <input type="submit" class="btn" value="Upravit">
+                                </form>
+                                <form action="{{ url_for('delete_record', record_id=record[3], vehicle_id=vehicle_id) }}" method="post">
+                                    <input type="submit" class="btn" value="Odstranit">
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{{ url_for('new_record', vehicle_id=vehicle_id) }}">Přidat nový záznam</a>
+            </div>
+
+            <!-- Pravá část stránky (dashboard zákazníka) -->
+            <div class="user-info-section">
+            <div class="user-info-box">
+                <h2>{{ name }} {{ surname }}</h2>
+                <p>{{ role }}</p>
+            </div>
+
+            <div class="actions-section">
+                    <button class="action-btn" onclick="document.location='/moje_prace'">Moje práce</button>
+                    <button class="action-btn">Kalendář</button>
+                    <button class="action-btn">Zprávy</button>
+                    <button class="action-btn" onclick="document.location='/profil'">Můj profil</button>
+                </div>
+                <form action="/odhlaseni" method="post">
+                   <input type="submit" class="btn" value="Odhlásit se">
+                </form>
+        </div>
+        </div>
+    </main>
+{% endblock %}

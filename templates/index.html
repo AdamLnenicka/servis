@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Mendelu Autoservis
+{% endblock %}
+
+{% block text %}
+
+<body>
+    <header>
+        <h1>O nás</h1>
+    </header>
+    <main>
+        <p>Poskytujeme kompletní servis osobních a užitkových vozů všech typů a značek.<br>
+            Samozřejmostí je zajištění technické prohlídky.<br>
+            Také provádíme likvidaci starých vraků.<br>
+            Naše společnost klade velký důraz na spokojenost klientů, kterým nabízí nadstandardní služby, avšak za standardní ceny.<br> V případě zájmu o naše služby se přihlašte do systému.
+            Pokud ještě nemáte účet, využijte tlačítko registrace.<br></p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Technická kontrola vozidel</p>
+    </footer>
+</body>
+<button class="registrace-btn" onclick="document.location='/registrace'">Registrace</button>
+{% endblock %}

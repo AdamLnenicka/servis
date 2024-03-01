@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Mendelu Autoservis
+{% endblock %}
+
+{% block text %}
+
+    <main>
+        <div class="dashboard-container">
+            <!-- Levá část stránky -->
+            <div class="vehicle-status-section">
+                <h2>Stav vozidla - {{ spz }}</h2>
+                <table class="vehicle-status-table">
+                    <thead>
+                        <tr>
+                            <th>Čas</th>
+                            <th>Služba</th>
+                            <th>Poznámka</th>
+                            <th>Učinil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for record in records %}
+                        <tr>
+                            <td>{{ record[0] }}</td>
+                            <td>{{ record[1] }}</td>
+                            <td>{{ record[2] }}</td>
+                            <td>{{ record[3] ~ ' ' ~ record[4] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pravá část stránky (dashboard zákazníka) -->
+            <div class="user-info-section">
+            <div class="user-info-box">
+                <h2>{{ name }} {{ surname }}</h2>
+                <p>{{ role }}</p>
+            </div>
+
+            <div class="actions-section">
+                <button class="action-btn" onclick="document.location='/stav_vozidla'">Stav vozidla</button>
+                <button class="action-btn" onclick="document.location='/nova_objednavka'">Nová objednávka</button>
+                <button class="action-btn">Zprávy</button>
+                <button class="action-btn" onclick="document.location='/profil'">Můj profil</button>
+            </div>
+
+            <form action="/odhlaseni" method="post">
+                <input type="submit" class="btn" value="Odhlásit se">
+            </form>
+        </div>
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Mendelu Autoservis - Registrace
+{% endblock %}
+
+{% block text %}
+<div class="form-container">
+            <h2>Registrace</h2>
+            <form action="/registrace" method="post">
+                <label for="name">Jméno:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="surname">Příjmení:</label>
+                <input type="text" id="surname" name="surname" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Heslo:</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="confirm-password">Potvrzení hesla:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+
+                <button class="registrace-btn">Registrovat</button>
+            </form>
+        </div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Mendelu Autoservis
+{% endblock %}
+
+{% block text %}
+
+    <main>
+        <div class="dashboard-container">
+            <!-- Levá část stránky -->
+            <div class="vehicle-status-section">
+                <h2>Stav vozidla</h2>
+                <div class="table-filters">
+                    {#                    <label for="filter-service">Filtr podle služby:</label>#}
+                    {#                    <select id="filter-service" name="filter-service">#}
+                    {#                        <option value="all">Všechny</option>#}
+                    {#                        <option value="kontrola">Kontrola</option>#}
+                    {#                        <option value="servis">Servis</option>#}
+                    {#                        <option value="likvidace">Likvidace</option>#}
+                    {#                    </select>#}
+                    {##}
+                    {#                    <label for="filter-technician">Filtr podle technika:</label>#}
+                    {#                    <select id="filter-technician" name="filter-technician">#}
+                    {#                        <option value="all">Všichni technici</option>#}
+                    {#                        <option value="jan-novak">Jan Novák</option>#}
+                    {#                        <!-- Další technici... -->#}
+                    {#                    </select>#}
+                </div>
+                <table class="vehicle-status-table">
+                    <thead>
+                    <tr>
+                        <th>SPZ</th>
+                        <th>Značka</th>
+                        <th>Model</th>
+                        <th>Rok výroby</th>
+                        <th>Podrobnosti</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for vehicle in vehicles %}
+                    <tr>
+                        <td>{{ vehicle[0] }}</td>
+                        <td>{{ vehicle[1] }}</td>
+                        <td>{{ vehicle[2] }}</td>
+                        <td>{{ vehicle[3] }}</td>
+                        <td><a href="{{ url_for('car_status_customer_detail', vehicle_id=vehicle[4]) }}">Zobrazit</a></td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pravá část stránky (dashboard zákazníka) -->
+            <div class="user-info-section">
+            <div class="user-info-box">
+                <h2>{{ name }} {{ surname }}</h2>
+                <p>{{ role }}</p>
+            </div>
+
+            <div class="actions-section">
+                <button class="action-btn" onclick="document.location='/stav_vozidla'">Stav vozidla</button>
+                <button class="action-btn" onclick="document.location='/nova_objednavka'">Nová objednávka</button>
+                <button class="action-btn">Zprávy</button>
+                <button class="action-btn" onclick="document.location='/profil'">Můj profil</button>
+            </div>
+
+            <form action="/odhlaseni" method="post">
+                <input type="submit" class="btn" value="Odhlásit se">
+            </form>
+        </div>
+        </div>
+    </main>
+{% endblock %}
