@@ -2,7 +2,7 @@ This project involved designing use cases, wireframes, and a database model, fol
 
 Detailed project information can be found at .docx documentation.
 
-Functionality of the application:
+<h2>Functionality of the application:</h2>
 
 1. User management:
    - Administrator: Has full access to all application functions, including user management, roles, and permissions.
@@ -22,7 +22,7 @@ Functionality of the application:
    - Generating reports and statistics related to technical inspections, services, and disposal.
    - Creating clear visualizations for managers.
 
-Permissions and roles:
+<h2>Permissions and roles:</h2>
 1. Administrator / boss
 2. Technical inspection manager
 3. Service manager
@@ -32,12 +32,12 @@ Permissions and roles:
 7. Scrap disposal technician
 8. Customer
 
-Technical requirements:
+<h2>Technical requirements:</h2>
 - The application will be developed as a web application with responsive design to be usable on various devices.
 - A modern web framework with a database system for data storage will be used for application development.
 - Security measures will include user authentication, role verification, and input data control.
 
-Additional requirements:
+<h2>Additional requirements:</h2>
 - The application will be intuitive and easy to use for users of different technical levels.
 - It will be ensured that different user roles will have access only to functions and data relevant to their work.
 - The application will support multi-language localization to be usable in different regions.
