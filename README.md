@@ -1,4 +1,4 @@
-<h1>!WORK IN PROGRESS! (About 75% functionalities done) </h1>
+
 
 This project involved designing use cases, wireframes, and a database model, followed by implementing HTML templates, CSS styles, and a SQLite3 database. The web application, built using Python and Flask, includes features such as registration, login, user profile management, and role-based functionalities. Security and functionality testing were conducted using various user roles. The application routes handle specific tasks like registration, login, user profiles, order management, and vehicle status display. The functions.py file manages database operations for user management, vehicle handling, and technical record processing.
 
